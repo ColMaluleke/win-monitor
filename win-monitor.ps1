@@ -70,8 +70,8 @@ function Get-DiskUsage {
     $drive = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='$($sysDrive):'"
 
     if (-not $drive -or -not $drive.Size) {
-        Write-Warning "Could not read disk usage for drive $sysDrive:"
-        Write-Log -Level ERROR -Message "Could not read disk usage" -Data @{ drive = "$sysDrive`:" }
+        Write-Warning "Could not read disk usage for drive ${sysDrive}:"
+        Write-Log -Level ERROR -Message "Could not read disk usage" -Data @{ drive = "${sysDrive}:" }
         return 0
     }
 
